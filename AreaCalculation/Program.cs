@@ -13,9 +13,13 @@ namespace AreaCalculation
 
             var factory = serviceProvider.GetRequiredService<IAreaCalculator>();
             var triangleCalculator = factory.CreateCalculator(ShapeNames.Triangle, 5, 5, 5);
-            double circleArea = triangleCalculator.CalculateArea();
+            var circleCalculator = factory.CreateCalculator(ShapeNames.Circle, 10);
+            double triangleArea = triangleCalculator.CalculateArea();
+            double circleArea = circleCalculator.CalculateArea();
 
-            Console.WriteLine($"The area of the triangle is {circleArea:F2}");
+            Console.WriteLine($"The area of the triangle is {triangleArea:F2}");
+            Console.WriteLine($"The area of the circle is {circleArea:F2}");
+
         }
     }
 }

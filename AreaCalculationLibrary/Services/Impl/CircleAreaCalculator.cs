@@ -17,7 +17,7 @@ namespace AreaCalculationLibrary.Services.Impl
 
         public double CalculateArea()
         {
-            return Math.PI * Math.Pow(radius, 2);
+            return Math.PI * radius * radius;
         }
     }
 }
