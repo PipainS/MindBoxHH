@@ -1,0 +1,10 @@
+/* Если продукты и категории связаны напрямую */
+SELECT p.name AS product_name, c.name AS category_name
+FROM products p
+LEFT JOIN categories c ON p.category_id = c.id;
+
+/* Если между продуктами и категориями есть таблица, связывающая их */
+SELECT p.name AS product_name,
+       (SELECT c.name FROM categories c WHERE c.id = pc.category_id) AS category_name
+FROM products p
+LEFT JOIN product_categories pc ON p.id = pc.product_id;
